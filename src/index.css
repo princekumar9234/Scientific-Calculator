@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
@@ -5,10 +6,18 @@
   --bg-color: #e0e5ec;
   --text-primary: #44475a;
   --text-secondary: #7a8296;
+=======
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg-color: #e0e5ec;
+  --text-color: #44475a;
+>>>>>>> origin/main
   --shadow-light: #ffffff;
   --shadow-dark: #a3b1c6;
   --accent-blue: #6d5dfc;
   --accent-red: #ff3b3b;
+<<<<<<< HEAD
   --accent-cyan: #00d2ff;
 }
 
@@ -20,6 +29,9 @@
   --shadow-dark: #1e2325;
   --accent-blue: #a29bfe;
   --accent-red: #fab1a0;
+=======
+  --accent-green: #00d2ff;
+>>>>>>> origin/main
 }
 
 * {
@@ -32,17 +44,26 @@
 
 body {
   background-color: var(--bg-color);
+<<<<<<< HEAD
   color: var(--text-primary);
+=======
+  color: var(--text-color);
+>>>>>>> origin/main
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   overflow: hidden;
   transition: all 0.4s ease;
+=======
+  overflow-x: hidden;
+>>>>>>> origin/main
 }
 
 #root {
   width: 100%;
+<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,6 +108,39 @@ body {
   box-shadow: inset 8px 8px 16px var(--shadow-dark),
               inset -8px -8px 16px var(--shadow-light);
   padding: 20px 25px;
+=======
+}
+
+.calculator-wrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neumorphic-body {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-color);
+  padding: 30px;
+  border-radius: 40px;
+  box-shadow: 20px 20px 60px var(--shadow-dark),
+              -20px -20px 60px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Display Screen */
+.neu-screen {
+  width: 100%;
+  background: var(--bg-color);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: inset 8px 8px 16px var(--shadow-dark),
+              inset -8px -8px 16px var(--shadow-light);
+  min-height: 140px;
+>>>>>>> origin/main
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,6 +148,7 @@ body {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 .expression-display {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
@@ -150,6 +205,23 @@ body {
   box-shadow: 3px 3px 6px var(--shadow-dark),
               -3px -3px 6px var(--shadow-light);
   color: var(--accent-blue);
+=======
+.expression-box {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: #7a8296;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.result-box {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  word-break: break-all;
+  text-align: right;
+>>>>>>> origin/main
 }
 
 /* Button Grid */
@@ -164,6 +236,7 @@ body {
   gap: 12px;
 }
 
+<<<<<<< HEAD
 /* Neumorphic Buttons */
 .calc-btn {
   height: 60px;
@@ -177,10 +250,25 @@ body {
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
+=======
+/* Button Base */
+.neu-btn {
+  height: 64px;
+  border-radius: 16px;
+  border: none;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 6px 6px 12px var(--shadow-dark),
+              -6px -6px 12px var(--shadow-light);
+>>>>>>> origin/main
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease;
+<<<<<<< HEAD
 }
 
 .calc-btn:active {
@@ -196,20 +284,46 @@ body {
 .btn-special {
   color: var(--text-secondary);
   font-size: 0.95rem;
+=======
+  position: relative;
+}
+
+.neu-btn:hover {
+  color: var(--accent-blue);
+}
+
+.neu-btn:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+              inset -4px -4px 8px var(--shadow-light);
+  transform: scale(0.98);
+}
+
+.btn-op {
+  color: var(--accent-blue);
+}
+
+.btn-spec {
+  font-size: 0.95rem;
+  color: #5d6d7e;
+>>>>>>> origin/main
 }
 
 .btn-clear {
   color: var(--accent-red);
 }
 
+<<<<<<< HEAD
 .btn-equal {
   color: var(--accent-blue);
 }
 
+=======
+>>>>>>> origin/main
 .btn-wide {
   grid-column: span 2;
 }
 
+<<<<<<< HEAD
 .scientific-active .btn-wide {
   grid-column: span 1;
 }
@@ -360,15 +474,67 @@ body {
   .control-pill:last-child {
     width: 100%;
     justify-content: center;
+=======
+/* Mode Switcher */
+.mode-toggle {
+  display: flex;
+  align-self: center;
+  background: var(--bg-color);
+  padding: 8px;
+  border-radius: 30px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+              inset -4px -4px 8px var(--shadow-light);
+  gap: 5px;
+}
+
+.toggle-item {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #7a8296;
+}
+
+.toggle-item.active {
+  background: var(--bg-color);
+  box-shadow: 4px 4px 8px var(--shadow-dark),
+              -4px -4px 8px var(--shadow-light);
+  color: var(--accent-blue);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .neumorphic-body {
+    padding: 20px;
+    border-radius: 30px;
+  }
+  
+  .result-box {
+    font-size: 2.2rem;
+  }
+  
+  .neu-btn {
+    height: 56px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+>>>>>>> origin/main
   }
 }
 
 @media (max-width: 360px) {
   .button-grid {
+<<<<<<< HEAD
     gap: 10px;
   }
   
   .calc-btn {
+=======
+    gap: 8px;
+  }
+  .neu-btn {
+>>>>>>> origin/main
     height: 50px;
   }
 }

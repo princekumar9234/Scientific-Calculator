@@ -47,7 +47,15 @@ A premium, modern Scientific Calculator built with **React**, **Math.js**, and *
    npm run build
    ```
 
+<<<<<<< HEAD
 
+=======
+## 📸 Screenshots
+
+*(Add screenshots here manually if needed)*
+
+## 📄 License
+>>>>>>> origin/main
 
 This project is open-source and available under the [MIT License](LICENSE).
 
