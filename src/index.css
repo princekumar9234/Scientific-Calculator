@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Neumorphic Light Mode Tokens */
+  --bg-color: #e0e5ec;
+  --text-primary: #44475a;
+  --text-secondary: #7a8296;
+  --shadow-light: #ffffff;
+  --shadow-dark: #a3b1c6;
+  --accent-blue: #6d5dfc;
+  --accent-red: #ff3b3b;
+  --accent-cyan: #00d2ff;
+}
+
+[data-theme='dark'] {
+  --bg-color: #2d3436;
+  --text-primary: #dfe6e9;
+  --text-secondary: #b2bec3;
+  --shadow-light: #3c4447;
+  --shadow-dark: #1e2325;
+  --accent-blue: #a29bfe;
+  --accent-red: #fab1a0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.calculator-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Neumorphic Body */
+.calculator-body {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--bg-color);
+  padding: 30px;
+  border-radius: 40px;
+  box-shadow: 20px 20px 50px var(--shadow-dark),
+              -20px -20px 50px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.calculator-body.scientific-active {
+  max-width: 550px;
+}
+
+/* Inset Screen */
+.screen {
+  width: 100%;
+  min-height: 120px;
+  background-color: var(--bg-color);
+  border-radius: 25px;
+  box-shadow: inset 8px 8px 16px var(--shadow-dark),
+              inset -8px -8px 16px var(--shadow-light);
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.expression-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  height: 20px;
+  margin-bottom: 4px;
+  text-align: right;
+  width: 100%;
+}
+
+.result-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-all;
+  line-height: 1.2;
+  text-align: right;
+  width: 100%;
+}
+
+/* Controls */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.control-pill {
+  background-color: var(--bg-color);
+  padding: 6px;
+  border-radius: 30px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+              inset -4px -4px 8px var(--shadow-light);
+  display: flex;
+  gap: 4px;
+}
+
+.pill-item {
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+
+.pill-item.active {
+  background-color: var(--bg-color);
+  box-shadow: 3px 3px 6px var(--shadow-dark),
+              -3px -3px 6px var(--shadow-light);
+  color: var(--accent-blue);
+}
+
+/* Button Grid */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.scientific-active .button-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+/* Neumorphic Buttons */
+.calc-btn {
+  height: 60px;
+  width: 100%;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 6px 6px 12px var(--shadow-dark),
+              -6px -6px 12px var(--shadow-light);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.calc-btn:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+              inset -4px -4px 8px var(--shadow-light);
+  transform: scale(0.96);
+}
+
+.btn-operator {
+  color: var(--accent-blue);
+}
+
+.btn-special {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.btn-clear {
+  color: var(--accent-red);
+}
+
+.btn-equal {
+  color: var(--accent-blue);
+}
+
+.btn-wide {
+  grid-column: span 2;
+}
+
+.scientific-active .btn-wide {
+  grid-column: span 1;
+}
+
+/* History Panel */
+.history-panel {
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--bg-color);
+  border-radius: 40px;
+  box-shadow: 15px 15px 35px var(--shadow-dark),
+              -15px -15px 35px var(--shadow-light);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  max-height: 600px;
+}
+
+.history-header {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-primary);
+}
+
+.clear-history {
+  font-size: 0.8rem;
+  color: var(--accent-red);
+  cursor: pointer;
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-right: 5px;
+}
+
+.history-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+  background: var(--shadow-dark);
+  border-radius: 10px;
+}
+
+.history-item {
+  padding: 12px;
+  border-radius: 15px;
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px 10px var(--shadow-dark),
+              -4px -4px 10px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.history-item:active {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+              inset -3px -3px 6px var(--shadow-light);
+}
+
+.hist-exp {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hist-res {
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Responsive Design Overrides */
+@media (max-width: 1024px) {
+  .calculator-container {
+    padding: 30px 15px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 850px) {
+  body {
+    overflow: visible;
+    overflow-x: hidden;
+  }
+  
+  .calculator-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .history-panel {
+    max-width: 420px;
+    max-height: 350px;
+  }
+
+  .calculator-body.scientific-active {
+    max-width: 420px; /* Force it to stay readable on tablets */
+  }
+
+  .scientific-active .button-grid {
+    grid-template-columns: repeat(4, 1fr); /* Switch back to 4 col for space */
+  }
+  
+  .scientific-active .btn-wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator-body {
+    padding: 20px;
+    border-radius: 30px;
+  }
+
+  .screen {
+    min-height: 100px;
+    padding: 15px 20px;
+  }
+
+  .result-display {
+    font-size: 1.8rem;
+  }
+
+  .calc-btn {
+    height: 55px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .top-controls {
+    justify-content: center;
+  }
+  
+  .control-pill:last-child {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .button-grid {
+    gap: 10px;
+  }
+  
+  .calc-btn {
+    height: 50px;
+  }
+}
